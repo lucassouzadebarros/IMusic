@@ -1,0 +1,276 @@
+{
+	"info": {
+		"_postman_id": "7d139524-b4b9-41f1-ad1a-fcfe11fcee23",
+		"name": "MyAutoBlogChallengeJava",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19731980",
+		"_collection_link": "https://dark-moon-719989.postman.co/workspace/Plataforma~aa628d8f-f471-43dc-9c0f-a598b7a1447c/collection/19731980-7d139524-b4b9-41f1-ad1a-fcfe11fcee23?action=share&source=collection_link&creator=19731980"
+	},
+	"item": [
+		{
+			"name": "Cadastro de usuário",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Gandalf\",\r\n    \"email\": \"gandalf1@gmail.com\",\r\n    \"password\": \"G@ND@LF\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Autentica usuário",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"gandalf1@gmail.com\",\r\n    \"password\": \"G@ND@LF\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/users/signIn",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"signIn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Mostrar usuário logado",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnYW5kYWxmMUBnbWFpbC5jb20iLCJpYXQiOjE3MTg2MzA2NDUsImV4cCI6MTcxODY2NjY0NX0.kavy4FSriZdKJWI-rA9wE4AlDnmR4UWu68iKFG72H3o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/users/logged",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"users",
+						"logged"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastra post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnYW5kYWxmMUBnbWFpbC5jb20iLCJpYXQiOjE3MTg2MzA2NDUsImV4cCI6MTcxODY2NjY0NX0.kavy4FSriZdKJWI-rA9wE4AlDnmR4UWu68iKFG72H3o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"You Shall not Pass!\",\r\n    \"text\": \"The evil Balrog reached the bridge. Gandalf stood in the middle of the span, leaning on the staff in his left hand, but in his other hand Glamdring gleamed, cold and white.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista posts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnYW5kYWxmMUBnbWFpbC5jb20iLCJpYXQiOjE3MTg2MzA2NDUsImV4cCI6MTcxODY2NjY0NX0.kavy4FSriZdKJWI-rA9wE4AlDnmR4UWu68iKFG72H3o",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/posts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consulta post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnYW5kYWxmQGdtYWlsLmNvbSIsImlhdCI6MTcxODMxMTUyOCwiZXhwIjoxNzE4MzQ3NTI4fQ.KhXrBOEeSYXNktjV0WsHD1NSFK757cHSgWtL9BkBTSU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/posts/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"posts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Editar post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnYW5kYWxmQGdtYWlsLmNvbSIsImlhdCI6MTcxODMxMTUyOCwiZXhwIjoxNzE4MzQ3NTI4fQ.KhXrBOEeSYXNktjV0WsHD1NSFK757cHSgWtL9BkBTSU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"You Shall not Pass! - Updated\",\r\n    \"text\": \"The evil Balrog reached the bridge. Gandalf stood in the middle of the span, leaning on the staff in his left hand, but in his other hand Glamdring gleamed, cold and white.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/posts/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"posts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir post",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJnYW5kYWxmMUBnbWFpbC5jb20iLCJpYXQiOjE3MTgzOTE2MjYsImV4cCI6MTcxODQyNzYyNn0.82ZTcOhXIhAD4pJrKFurODbxInSby3qkVphp4stcyqg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/posts/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"posts",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "JWT",
+			"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0ZUBpbXVzaWNhLmNvbS5iciIsImlhdCI6MTYyOTIzOTQ4OSwiZXhwIjoxNjI5Mjc1NDg5fQ.gyjbpYx9StKg1ZBOqWAvucBVvzIOFf2LPNMOpW67Mrg"
+		}
+	]
+}
