@@ -44,7 +44,7 @@ public class PostController {
 	}
 
 	@GetMapping("/{postId}")
-	public ResponseEntity<Post> listPostDatails(@PathVariable Long idPost){
+	public ResponseEntity<Post> listPostDatails(@PathVariable Long postId){
 
 		Post post = repository.findByUserAndId(userLogado.getUser(), idPost);
 
@@ -53,10 +53,10 @@ public class PostController {
 	}
 
 	@PutMapping("/{postId}")
-	public ResponseEntity<Post> updatePost(@PathVariable Long id, @RequestBody Post updatepost){
+	public ResponseEntity<Post> updatePost(@PathVariable Long postId, @RequestBody Post updatepost){
 
 
-		Post postExiste = repository.findByUserAndId(this.userLogado.getUser(), id);
+		Post postExiste = repository.findByUserAndId(this.userLogado.getUser(), postId);
 
 		if(postExiste == null){
 			return ResponseEntity.status(403).build();
